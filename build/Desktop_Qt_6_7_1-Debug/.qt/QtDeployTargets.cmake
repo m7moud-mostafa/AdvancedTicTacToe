@@ -1,0 +1,1 @@
+set(__QT_DEPLOY_TARGET_AdvancedTicTacToe_FILE /home/mahmoud/01_Engineering_Stuff/01_Projects/02/AdvancedTicTacToe/build/Desktop_Qt_6_7_1-Debug/AdvancedTicTacToe)

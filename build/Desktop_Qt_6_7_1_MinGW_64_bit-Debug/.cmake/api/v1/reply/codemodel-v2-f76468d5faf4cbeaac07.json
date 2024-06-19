@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-421a9c7abcff9622059f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "AdvancedTicTacToe",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "AdvancedTicTacToe::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-AdvancedTicTacToe-Debug-ae7a328102b14f814fc2.json",
+					"name" : "AdvancedTicTacToe",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "AdvancedTicTacToe_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-AdvancedTicTacToe_autogen-Debug-26e83d11bf42563f07b3.json",
+					"name" : "AdvancedTicTacToe_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "AdvancedTicTacToe_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-AdvancedTicTacToe_autogen_timestamp_deps-Debug-aed6ee9bccb3a9991367.json",
+					"name" : "AdvancedTicTacToe_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/mm579/OneDrive/Documents/AdvancedTicTacToe/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug",
+		"source" : "C:/Users/mm579/OneDrive/Documents/AdvancedTicTacToe"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

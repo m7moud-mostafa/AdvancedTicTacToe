@@ -1,0 +1,9 @@
+# ninja log v5
+0	296	1718822527097139174	AdvancedTicTacToe_autogen/timestamp	903f2d1629602223
+0	296	1718822527097139174	AdvancedTicTacToe_autogen/mocs_compilation.cpp	903f2d1629602223
+0	296	1718822527097139174	/home/mahmoud/01_Engineering_Stuff/01_Projects/02/AdvancedTicTacToe/build/Desktop_Qt_6_7_1-Debug/AdvancedTicTacToe_autogen/timestamp	903f2d1629602223
+0	296	1718822527097139174	/home/mahmoud/01_Engineering_Stuff/01_Projects/02/AdvancedTicTacToe/build/Desktop_Qt_6_7_1-Debug/AdvancedTicTacToe_autogen/mocs_compilation.cpp	903f2d1629602223
+297	1520	1718822528317173698	CMakeFiles/AdvancedTicTacToe.dir/AdvancedTicTacToe_autogen/mocs_compilation.cpp.o	4d250a63e9f19da9
+297	1571	1718822528365175051	CMakeFiles/AdvancedTicTacToe.dir/main.cpp.o	21b813f07da8de43
+298	1858	1718822528649183057	CMakeFiles/AdvancedTicTacToe.dir/widget.cpp.o	4eb7a51191474179
+1858	2201	1718822529001192981	AdvancedTicTacToe	d135e8a1b25ee48d

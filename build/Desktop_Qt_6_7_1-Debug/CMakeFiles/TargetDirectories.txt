@@ -1,0 +1,9 @@
+/home/mahmoud/01_Engineering_Stuff/01_Projects/02/AdvancedTicTacToe/build/Desktop_Qt_6_7_1-Debug/CMakeFiles/AdvancedTicTacToe.dir
+/home/mahmoud/01_Engineering_Stuff/01_Projects/02/AdvancedTicTacToe/build/Desktop_Qt_6_7_1-Debug/CMakeFiles/edit_cache.dir
+/home/mahmoud/01_Engineering_Stuff/01_Projects/02/AdvancedTicTacToe/build/Desktop_Qt_6_7_1-Debug/CMakeFiles/rebuild_cache.dir
+/home/mahmoud/01_Engineering_Stuff/01_Projects/02/AdvancedTicTacToe/build/Desktop_Qt_6_7_1-Debug/CMakeFiles/list_install_components.dir
+/home/mahmoud/01_Engineering_Stuff/01_Projects/02/AdvancedTicTacToe/build/Desktop_Qt_6_7_1-Debug/CMakeFiles/install.dir
+/home/mahmoud/01_Engineering_Stuff/01_Projects/02/AdvancedTicTacToe/build/Desktop_Qt_6_7_1-Debug/CMakeFiles/install/local.dir
+/home/mahmoud/01_Engineering_Stuff/01_Projects/02/AdvancedTicTacToe/build/Desktop_Qt_6_7_1-Debug/CMakeFiles/install/strip.dir
+/home/mahmoud/01_Engineering_Stuff/01_Projects/02/AdvancedTicTacToe/build/Desktop_Qt_6_7_1-Debug/CMakeFiles/AdvancedTicTacToe_autogen_timestamp_deps.dir
+/home/mahmoud/01_Engineering_Stuff/01_Projects/02/AdvancedTicTacToe/build/Desktop_Qt_6_7_1-Debug/CMakeFiles/AdvancedTicTacToe_autogen.dir
