@@ -38,7 +38,7 @@
     </font>
    </property>
    <property name="currentIndex">
-    <number>5</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="page_0_Login">
     <widget class="QGroupBox" name="groupBox">
@@ -130,7 +130,7 @@
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
       </property>
      </widget>
-     <widget class="QLineEdit" name="firstNameTextBox_2">
+     <widget class="QLineEdit" name="loginUsernameLineEdit">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -175,7 +175,7 @@
        <string>Enter your Username</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="firstNameTextBox_3">
+     <widget class="QLineEdit" name="loginPasswordLineEdit">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -741,7 +741,7 @@
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QLineEdit" name="userameTextBox">
+     <widget class="QLineEdit" name="signupUsernameLineEdit">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -786,7 +786,7 @@
        <string>Enter your Username</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="passwordTextBox">
+     <widget class="QLineEdit" name="signupPasswordLineEdit">
       <property name="enabled">
        <bool>true</bool>
       </property>

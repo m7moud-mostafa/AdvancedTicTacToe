@@ -4,6 +4,10 @@
 #include <QWidget>
 #include <QPoint>
 #include <QPushButton>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -50,6 +54,12 @@ private:
     void resetBoard();
     QPushButton* getButton(int row, int col);
     void showWinnerMessage(int winResult); // New method to display the winner's message
+
+private:
+    void initializeDatabase();
+    bool registerUser(const QString &username, const QString &password);
+    bool authenticateUser(const QString &username, const QString &password);
+
 };
 
 #endif // WIDGET_H

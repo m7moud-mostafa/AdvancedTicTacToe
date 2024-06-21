@@ -12,6 +12,8 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
 
+    initializeDatabase();
+
     // Set the initial page to the login page
     ui->stackedWidget->setCurrentIndex(0);  // Replace 0 with the index of your desired initial page
 
@@ -273,14 +275,6 @@ QPoint Widget::findBestMove(int board[3][3]) {
     return bestMove;
 }
 
-void Widget::on_loginButton_clicked() {
-    ui->stackedWidget->setCurrentIndex(1);
-}
-
-void Widget::on_signupButton_clicked() {
-    ui->stackedWidget->setCurrentIndex(2);
-}
-
 void Widget::on_playerVsPlayerButton_clicked() {
     isVsAI = false; // Set flag to false for Player vs Player mode
     resetBoard();
@@ -331,4 +325,96 @@ void Widget::on_backButtonPage4_clicked() {
 void Widget::on_resetButton_clicked() {
     resetBoard();
     ui->stackedWidget->setCurrentIndex(5);
+}
+
+/*_________DATABASE MANAGEMENT SYSTEM_________*/
+
+void Widget::initializeDatabase() {
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("users.db");
+
+    if (!db.open()) {
+        qDebug() << "Error: connection with database failed";
+    } else {
+        qDebug() << "Database: connection ok";
+
+        QSqlQuery query;
+        query.exec("CREATE TABLE IF NOT EXISTS users ("
+                   "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+                   "username TEXT NOT NULL,"
+                   "password TEXT NOT NULL"
+                   ")");
+    }
+}
+
+bool Widget::registerUser(const QString &username, const QString &password) {
+    QSqlQuery query;
+    query.prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
+    query.bindValue(":username", username);
+    query.bindValue(":password", password); // Consider hashing the password
+
+    if (!query.exec()) {
+        qDebug() << "Error: failed to insert new user" << query.lastError();
+        return false;
+    }
+    return true;
+}
+
+bool Widget::authenticateUser(const QString &username, const QString &password) {
+    QSqlQuery query;
+    query.prepare("SELECT password FROM users WHERE username = :username");
+    query.bindValue(":username", username);
+
+    if (!query.exec()) {
+        qDebug() << "Error: failed to execute query" << query.lastError();
+        return false;
+    }
+
+    if (query.next()) {
+        QString storedPassword = query.value(0).toString();
+        if (storedPassword == password) { // Consider hashing and comparing
+            return true;
+        }
+    }
+    return false;
+}
+
+
+void Widget::on_signupButton_clicked() {
+    QString username = ui->signupUsernameLineEdit->text();
+    QString password = ui->signupPasswordLineEdit->text();
+
+    // Debugging: Print username and password to the console
+    qDebug() << "Signup username:" << username;
+    qDebug() << "Signup password:" << password;
+
+    if (username.isEmpty() || password.isEmpty()) {
+        QMessageBox::warning(this, "Signup Failed", "Please enter both username and password.");
+        return;
+    }
+
+    if (registerUser(username, password)) {
+        QMessageBox::information(this, "Signup Successful", "You have been registered.");
+        ui->stackedWidget->setCurrentIndex(0); // Go back to login page
+    } else {
+        QMessageBox::warning(this, "Signup Failed", "Could not register user.");
+    }
+}
+
+
+void Widget::on_loginButton_clicked() {
+    QString username = ui->loginUsernameLineEdit->text();
+    QString password = ui->loginPasswordLineEdit->text();
+
+    if (username.isEmpty() || password.isEmpty()) {
+        QMessageBox::warning(this, "Login Failed", "Please enter both username and password.");
+        return;
+    }
+
+    if (authenticateUser(username, password)) {
+        QMessageBox::information(this, "Login Successful", "Welcome!");
+        ui->stackedWidget->setCurrentIndex(1); // Proceed to the next page
+    } else {
+        QMessageBox::warning(this, "Login Failed", "Invalid username or password.");
+    }
 }
