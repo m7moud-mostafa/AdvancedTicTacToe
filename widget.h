@@ -27,6 +27,7 @@ private slots:
     void handleButtonClick();
     void on_loginButton_clicked();
     void on_signupButton_clicked();
+    void on_registerButton_clicked();
     void on_playerVsPlayerButton_clicked();
     void on_playerVsAiButton_clicked();
     void on_backButtonGamePage_clicked();
@@ -55,7 +56,7 @@ private:
     QPushButton* getButton(int row, int col);
     void showWinnerMessage(int winResult); // New method to display the winner's message
 
-private:
+    // Database related methods
     void initializeDatabase();
     bool registerUser(const QString &username, const QString &password);
     bool authenticateUser(const QString &username, const QString &password);

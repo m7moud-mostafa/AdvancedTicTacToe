@@ -360,27 +360,72 @@ bool Widget::registerUser(const QString &username, const QString &password) {
     return true;
 }
 
-bool Widget::authenticateUser(const QString &username, const QString &password) {
+bool Widget::authenticateUser(const QString &username, const QString &password)
+{
     QSqlQuery query;
-    query.prepare("SELECT password FROM users WHERE username = :username");
+    query.prepare("SELECT * FROM users WHERE username = :username AND password = :password");
     query.bindValue(":username", username);
+    query.bindValue(":password", password); // Consider hashing and comparing
 
     if (!query.exec()) {
-        qDebug() << "Error: failed to execute query" << query.lastError();
+        qDebug() << "Error: failed to authenticate user" << query.lastError();
         return false;
     }
 
     if (query.next()) {
-        QString storedPassword = query.value(0).toString();
-        if (storedPassword == password) { // Consider hashing and comparing
-            return true;
-        }
+        return true;
     }
     return false;
 }
 
 
 void Widget::on_signupButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+// void Widget::on_signupButton_clicked()
+// {
+//     QString username = ui->signupUsernameLineEdit->text();
+//     QString password = ui->signupPasswordLineEdit->text();
+
+//     // Debugging: Print username and password to the console
+//     qDebug() << "Signup username:" << username;
+//     qDebug() << "Signup password:" << password;
+
+//     if (username.isEmpty() || password.isEmpty()) {
+//         QMessageBox::warning(this, "Signup Failed", "Please enter both username and password.");
+//         return;
+//     }
+
+//     if (registerUser(username, password)) {
+//         QMessageBox::information(this, "Signup Successful", "You have been registered.");
+//         ui->stackedWidget->setCurrentIndex(0); // Go back to login page
+//     } else {
+//         QMessageBox::warning(this, "Signup Failed", "Could not register user.");
+//     }
+// }
+
+
+void Widget::on_loginButton_clicked()
+{
+    QString username = ui->loginUsernameLineEdit->text();
+    QString password = ui->loginPasswordLineEdit->text();
+
+    if (username.isEmpty() || password.isEmpty()) {
+        QMessageBox::warning(this, "Login Failed", "Please enter both username and password.");
+        return;
+    }
+
+    if (authenticateUser(username, password)) {
+        QMessageBox::information(this, "Login Successful", "Welcome!");
+        ui->stackedWidget->setCurrentIndex(1); // Proceed to the next page
+    } else {
+        QMessageBox::warning(this, "Login Failed", "Invalid username or password.");
+    }
+}
+
+void Widget::on_registerButton_clicked()
+{
     QString username = ui->signupUsernameLineEdit->text();
     QString password = ui->signupPasswordLineEdit->text();
 
@@ -398,23 +443,5 @@ void Widget::on_signupButton_clicked() {
         ui->stackedWidget->setCurrentIndex(0); // Go back to login page
     } else {
         QMessageBox::warning(this, "Signup Failed", "Could not register user.");
-    }
-}
-
-
-void Widget::on_loginButton_clicked() {
-    QString username = ui->loginUsernameLineEdit->text();
-    QString password = ui->loginPasswordLineEdit->text();
-
-    if (username.isEmpty() || password.isEmpty()) {
-        QMessageBox::warning(this, "Login Failed", "Please enter both username and password.");
-        return;
-    }
-
-    if (authenticateUser(username, password)) {
-        QMessageBox::information(this, "Login Successful", "Welcome!");
-        ui->stackedWidget->setCurrentIndex(1); // Proceed to the next page
-    } else {
-        QMessageBox::warning(this, "Login Failed", "Invalid username or password.");
     }
 }
